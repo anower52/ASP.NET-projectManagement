@@ -1,0 +1,10 @@
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\PMTRepository.dll.config
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\PMTRepository.dll
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\PMTRepository.pdb
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\EntityFramework.dll
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\EntityFramework.xml
+D:\Study\Project\Project_Management_Too\PMTRepository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Study\Project\Project_Management_Too\PMTRepository\obj\Debug\PMTRepository.csprojResolveAssemblyReference.cache
+D:\Study\Project\Project_Management_Too\PMTRepository\obj\Debug\PMTRepository.dll
+D:\Study\Project\Project_Management_Too\PMTRepository\obj\Debug\PMTRepository.pdb

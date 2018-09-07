@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Assign User";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+@Html.Partial("_Developer")
+<td>
+    <fieldset>
+        <legend><b>SELECT USER</b></legend>
+        <br />
+        <form  method="post">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="100"></td>
+                    <td width="10"></td>
+                    <td width="230"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Select Project</td>
+                    <td>:</td>
+                    <td>
+                        <select name="projectId">
+                            <option></option>
+                           @foreach (var item in ViewBag.all_project)
+                           {
+                            <option value="@item.Id">@item.ProjectName</option>
+                           }
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Select Resource Person</td>
+                    <td>:</td>
+                    <td>
+                        <select name="userId">
+                            <option></option>
+                            @foreach (var item in ViewBag.all_user)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr />
+            <input type="submit" value="ADD">
+            <a href="/ProjectManager/all_project">Back to View Project</a>
+        </form>
+    </fieldset>
+</td>
+

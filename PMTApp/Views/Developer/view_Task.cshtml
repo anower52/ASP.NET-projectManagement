@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "View Task";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+
+@Html.Partial("_ProjectManagerView")
+
+<td>
+    <fieldset>
+        <legend>
+            <b>ALL TASK</b>
+        </legend><br />
+        <br /><br />
+        <table width="100%" cellspacing="0" border="1" cellpadding="5">
+            <tr>
+                <th align="left">Project Name</th>
+                <th align="left">TASK NAME</th>
+                <th align="left">ASSIGNED TO</th>
+                <th align="left">PRIORITY</th>
+                <th align="left">ASSIGNED BY</th>
+                <th align="left">DUE DATE</th>
+            </tr>
+            <tr>
+            @foreach (var item in ViewBag.all_task)
+            {
+            <tr>
+                <td>@item.ProjectName</td>
+                <td>@item.TaskName</td>
+                <td>@item.RUserName</td>
+                <td>@item.Priority</td>
+                <td>@item.GUserName</td>
+                <td>@item.DueDate</td>
+            </tr>
+            }
+        </table><br />
+        <a href="">Add Task</a>
+    </fieldset>
+</td>
+

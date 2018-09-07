@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Assign User";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+@Html.Partial("_Developer")
+
+<td>
+    <fieldset>
+        <legend><b>ADD TASK</b></legend>
+        <br />
+        <form method="post">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="100"></td>
+                    <td width="10"></td>
+                    <td width="230"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Select Project</td>
+                    <td>:</td>
+                    <td>
+                        <select name="projectId" id="projectId">
+                            <option></option>
+                            @foreach (var item in ViewBag.all_project)
+                            {
+                                <option value="@item.Id">@item.ProjectName</option>
+                            }
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Assign To</td>
+                    <td>:</td>
+                    <td>
+                        <select name="userId" id="userId">
+                            <option></option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Task Name</td>
+                    <td>:</td>
+                    <td><input type="text" name="description"></td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td valign="top">Due Date</td>
+                    <td valign="top">:</td>
+                    <td>
+                        <input name="due_date" type="date" value="" id="due_date">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4"><hr /></td></tr>
+                <tr>
+                    <td>Priority</td>
+                    <td>:</td>
+                    <td>
+                        <select name="priority">
+                            <option></option>
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr />
+            <input type="submit" value="ADD">
+            <a href="">Back to Task</a>
+        </form>
+    </fieldset>
+</td>
+<script>
+    $('#projectId').on('change', function () {
+        projectId = $('#projectId option:selected').val(); // the dropdown item selected value
+        console.log(projectId);
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'userByProject/'+projectId,
+            success: function (result) {
+                console.log(result);
+                $('#userId').html('');
+                $('#userId').append('<option></option>');
+                result.forEach(function (t) {
+                    // $('#item') refers to the EMPTY select list
+                    // the .append means add to the object refered to above
+                    $('#userId').append('<option value="' + t['Id'] + '">' + t['Name'] + '</option>');
+                });
+            }
+        })
+
+    });
+</script>
